@@ -42,8 +42,8 @@ class IntroScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(80),
                       child: Image.asset(
                         'assets/boat_logo.png',
-                        width: 120,
-                        height: 120,
+                        width: 160, // Resized to match background
+                        height: 160, // Resized to match background
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -80,7 +80,7 @@ class IntroScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 60),
                   SizedBox(
-                    width: double.infinity,
+                    width: 200, // Standard button width
                     height: 56,
                     child: ElevatedButton(
                       onPressed: () => _goToHome(context),

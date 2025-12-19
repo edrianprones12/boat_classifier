@@ -6,6 +6,30 @@ import '../services/history.dart';
 import 'result_screen.dart';
 import '../main.dart';
 
+class _WaveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0, size.height - 40);
+    var firstControlPoint = Offset(size.width / 4, size.height);
+    var firstEndPoint = Offset(size.width / 2.25, size.height - 30);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstEndPoint.dx, firstEndPoint.dy);
+    var secondControlPoint =
+        Offset(size.width - (size.width / 3.25), size.height - 65);
+    var secondEndPoint = Offset(size.width, size.height - 40);
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+        secondEndPoint.dx, secondEndPoint.dy);
+    path.lineTo(size.width, size.height - 40);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
 class CameraScreen extends StatefulWidget {
   const CameraScreen({super.key});
 
@@ -259,75 +283,78 @@ class _CameraScreenState extends State<CameraScreen>
           : Column(
               children: [
                 // Header
-                Container(
-                  padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top + 16,
-                    bottom: 24,
-                    left: 24,
-                    right: 24,
-                  ),
-                  decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF1A1A1A) : const Color(0xFFE3F2FD), // Light blue background
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.1),
-                              blurRadius: 8,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: Image.asset(
-                          'assets/boat_logo.png',
-                          width: 32,
-                          height: 32,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'AquaLens',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: isDark ? Colors.white : const Color(0xFF1A1A1A),
-                              ),
-                            ),
-                            Text(
-                              'AI-Powered Classification',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: isDark ? Colors.white70 : Colors.grey[600],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          ThemeController.instance.toggleTheme();
-                        },
-                        icon: Icon(
-                          isDark ? Icons.light_mode : Icons.dark_mode,
-                          color: isDark ? Colors.white : const Color(0xFF1A1A1A),
-                        ),
-                        style: IconButton.styleFrom(
-                          backgroundColor: isDark ? Colors.white.withValues(alpha: 0.1) : Colors.white,
+                ClipPath(
+                  clipper: _WaveClipper(),
+                  child: Container(
+                    padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).padding.top + 16,
+                      bottom: 60, // Increased bottom padding for wave
+                      left: 24,
+                      right: 24,
+                    ),
+                    decoration: BoxDecoration(
+                      color: isDark ? const Color(0xFF1A1A1A) : const Color(0xFFE3F2FD), // Light blue background
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
                           padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: 0.1),
+                                blurRadius: 8,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: Image.asset(
+                            'assets/boat_logo.png',
+                            width: 48, // Resized to be larger
+                            height: 48, // Resized to be larger
+                            fit: BoxFit.contain,
+                          ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'AquaLens',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: isDark ? Colors.white : const Color(0xFF1A1A1A),
+                                ),
+                              ),
+                              Text(
+                                'AI-Powered Image Classification',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: isDark ? Colors.white70 : Colors.grey[600],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            ThemeController.instance.toggleTheme();
+                          },
+                          icon: Icon(
+                            isDark ? Icons.light_mode : Icons.dark_mode,
+                            color: isDark ? Colors.white : const Color(0xFF1A1A1A),
+                          ),
+                          style: IconButton.styleFrom(
+                            backgroundColor: isDark ? Colors.white.withValues(alpha: 0.1) : Colors.white,
+                            padding: const EdgeInsets.all(8),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 
@@ -377,7 +404,7 @@ class _CameraScreenState extends State<CameraScreen>
                                 ),
                                 const SizedBox(height: 32),
                                 Text(
-                                  'Boat Classifier',
+                                  'Welcome to AquaLens!',
                                   style: TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,
