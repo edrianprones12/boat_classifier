@@ -267,7 +267,7 @@ class _CameraScreenState extends State<CameraScreen>
                     right: 24,
                   ),
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF1A1A1A) : const Color(0xFFE0E7FF), // Light purple/blue background
+                    color: isDark ? const Color(0xFF1A1A1A) : const Color(0xFFE3F2FD), // Light blue background
                   ),
                   child: Row(
                     children: [
@@ -359,11 +359,11 @@ class _CameraScreenState extends State<CameraScreen>
                                 Container(
                                   padding: const EdgeInsets.all(24),
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFF5E5CE6), // Purple accent
+                                    color: const Color(0xFF2196F3), // Blue accent
                                     shape: BoxShape.circle,
                                     boxShadow: [
                                       BoxShadow(
-                                        color: const Color(0xFF5E5CE6).withValues(alpha: 0.3),
+                                        color: const Color(0xFF2196F3).withValues(alpha: 0.3),
                                         blurRadius: 16,
                                         offset: const Offset(0, 8),
                                       ),
@@ -403,7 +403,7 @@ class _CameraScreenState extends State<CameraScreen>
                                         icon: const Icon(Icons.camera_alt),
                                         label: const Text('Camera'),
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color(0xFF5E5CE6), // Purple
+                                          backgroundColor: const Color(0xFF2196F3), // Blue
                                           foregroundColor: Colors.white,
                                           padding: const EdgeInsets.symmetric(vertical: 16),
                                           shape: RoundedRectangleBorder(
@@ -420,9 +420,9 @@ class _CameraScreenState extends State<CameraScreen>
                                         icon: const Icon(Icons.photo_library),
                                         label: const Text('Gallery'),
                                         style: OutlinedButton.styleFrom(
-                                          foregroundColor: isDark ? Colors.white : const Color(0xFF5E5CE6),
+                                          foregroundColor: isDark ? Colors.white : const Color(0xFF2196F3),
                                           side: BorderSide(
-                                            color: isDark ? Colors.white24 : const Color(0xFF5E5CE6).withValues(alpha: 0.2),
+                                            color: isDark ? Colors.white24 : const Color(0xFF2196F3).withValues(alpha: 0.2),
                                           ),
                                           padding: const EdgeInsets.symmetric(vertical: 16),
                                           shape: RoundedRectangleBorder(
@@ -445,7 +445,7 @@ class _CameraScreenState extends State<CameraScreen>
                                 vertical: 12,
                               ),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF5E5CE6).withValues(alpha: 0.1),
+                                color: const Color(0xFF2196F3).withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: const Row(
@@ -457,7 +457,7 @@ class _CameraScreenState extends State<CameraScreen>
                                     child: CircularProgressIndicator(
                                       strokeWidth: 2.5,
                                       valueColor: AlwaysStoppedAnimation<Color>(
-                                        Color(0xFF5E5CE6),
+                                        Color(0xFF2196F3),
                                       ),
                                     ),
                                   ),
@@ -467,7 +467,7 @@ class _CameraScreenState extends State<CameraScreen>
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500,
-                                      color: Color(0xFF5E5CE6),
+                                      color: Color(0xFF2196F3),
                                     ),
                                   ),
                                 ],

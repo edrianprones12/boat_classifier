@@ -86,7 +86,7 @@ class ResultScreen extends StatelessWidget {
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
     final textColor = isDark ? Colors.white : const Color(0xFF1A1A1A);
     final cardColor = isDark ? const Color(0xFF1E1E1E) : Colors.white;
-    final accentColor = const Color(0xFF5E5CE6);
+    final accentColor = const Color(0xFF2196F3);
 
     return Scaffold(
       backgroundColor: backgroundColor,
