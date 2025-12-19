@@ -405,6 +405,7 @@ class _CameraScreenState extends State<CameraScreen>
                                 const SizedBox(height: 32),
                                 Text(
                                   'Welcome to AquaLens!',
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,

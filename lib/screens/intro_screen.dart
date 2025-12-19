@@ -6,9 +6,9 @@ class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
 
   void _goToHome(BuildContext context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const CameraScreen()),
-    );
+    Navigator.of(
+      context,
+    ).pushReplacement(MaterialPageRoute(builder: (_) => const CameraScreen()));
   }
 
   @override
@@ -17,10 +17,7 @@ class IntroScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFF0D47A1),
-              Color(0xFF1976D2),
-            ],
+            colors: [Color(0xFF0D47A1), Color(0xFF1976D2)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -51,8 +48,9 @@ class IntroScreen extends StatelessWidget {
                   const SizedBox(height: 40),
                   const Text(
                     'AquaLens',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 36,
+                      fontSize: 32,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       letterSpacing: 1,
@@ -69,7 +67,7 @@ class IntroScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   const Text(
-                    'Identify boat types with advanced machine learning powered by TensorFlow Lite.',
+                    'Identify boat types with advanced machine learning.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 15,
