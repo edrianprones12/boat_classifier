@@ -1,0 +1,33 @@
+# Generated files
+.dart_tool/
+build/
+.gradle/
+.kotlin/
+android/build/
+android/.gradle/
+android/.kotlin/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Local config
+local.properties
+
+# Unused platforms
+web/
+ios/
+linux/
+macos/
+windows/
+
+# Other
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+x64/
+x86/
+*.[Cc]ache
+!*.[Cc]ache/

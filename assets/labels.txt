@@ -1,0 +1,10 @@
+0 Bamboo Raft
+1 Cargo Boat
+2 Ferry Boat
+3 Fishing Boat
+4 Jet Ski
+5 Kayak
+6 Sail Boat
+7 Speed Boat
+8 Tourist Boat
+9 Yacht
